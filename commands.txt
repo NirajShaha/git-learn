@@ -1,0 +1,355 @@
+PS E:\git-learn\git-learn> git branch
+  Niraj
+* main
+PS E:\git-learn\git-learn> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS E:\git-learn\git-learn> git push origin Niraj
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 286 bytes | 143.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'Niraj' on GitHub by visiting:
+remote:      https://github.com/NirajShaha/git-learn/pull/new/Niraj
+remote: 
+To https://github.com/NirajShaha/git-learn.git
+ * [new branch]      Niraj -> Niraj
+PS E:\git-learn\git-learn> git remote -v
+origin  https://github.com/NirajShaha/git-learn.git (fetch)
+origin  https://github.com/NirajShaha/git-learn.git (push)
+upstream        https://github.com/arohi12344/git-learn.git (fetch)
+upstream        https://github.com/arohi12344/git-learn.git (push)
+PS E:\git-learn\git-learn> git checkout Niraj
+Already on 'Niraj'
+PS E:\git-learn\git-learn> git status
+On branch Niraj
+nothing to commit, working tree clean
+PS E:\git-learn\git-learn> git push origin Niraj
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 323 bytes | 323.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/NirajShaha/git-learn.git
+   2b08a5f..e37ab02  Niraj -> Niraj
+PS E:\git-learn\git-learn> git log
+commit e37ab02f80ce073f216ec432e624663caa1fa4fe (HEAD -> Niraj, origin/Niraj)
+Author: NirajShaha <nirajshahatakri@gmail.com>
+Date:   Sat Apr 25 13:57:17 2026 +0000
+
+    Niraj added new names.txt file
+
+commit 2b08a5fb031cb761212898405f116bd88f53c57d
+Author: NirajShaha <nirajshahatakri@gmail.com>
+Date:   Sat Apr 25 13:43:56 2026 +0000
+
+    Niraj added a message
+
+commit fa3194dc15b3f6cc7d0a789d00648e5d57a6ea2f (origin/main, origin/HEAD, main)
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 18:19:07 2026 +0530
+
+    Initial commit
+PS E:\git-learn\git-learn> git reset 2b08a5fb031cb761212898405f116bd88f53c57d
+PS E:\git-learn\git-learn> git status 
+On branch Niraj
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        names.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS E:\git-learn\git-learn> git add .
+warning: in the working copy of 'names.txt', LF will be replaced by CRLF the next time Git touches it
+PS E:\git-learn\git-learn> git branch
+* Niraj
+  main
+PS E:\git-learn\git-learn> git stash
+Saved working directory and index state WIP on Niraj: 2b08a5f Niraj added a message
+PS E:\git-learn\git-learn> git log
+commit 2b08a5fb031cb761212898405f116bd88f53c57d (HEAD -> Niraj)
+Author: NirajShaha <nirajshahatakri@gmail.com>
+Date:   Sat Apr 25 13:43:56 2026 +0000
+
+    Niraj added a message
+
+commit fa3194dc15b3f6cc7d0a789d00648e5d57a6ea2f (origin/main, origin/HEAD, main)
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 18:19:07 2026 +0530
+
+    Initial commit
+PS E:\git-learn\git-learn> git push origin Niraj -f
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/NirajShaha/git-learn.git
+ + e37ab02...2b08a5f Niraj -> Niraj (forced update)
+PS E:\git-learn\git-learn> git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS E:\git-learn\git-learn> git log
+commit fa3194dc15b3f6cc7d0a789d00648e5d57a6ea2f (HEAD -> main, origin/main, origin/HEAD)
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 18:19:07 2026 +0530
+
+    Initial commit
+PS E:\git-learn\git-learn> git fetch --all --prune
+Fetching origin
+Fetching upstream
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (1/1), 905 bytes | 22.00 KiB/s, done.
+From https://github.com/arohi12344/git-learn
+ * [new branch]      main       -> upstream/main
+PS E:\git-learn\git-learn> git reset --hard upstream/main
+HEAD is now at c3b0713 Merge pull request #1 from NirajShaha/Niraj
+PS E:\git-learn\git-learn> git log
+commit c3b071336e3b78c05453a8822941d1b4f237636c (HEAD -> main, upstream/main)
+Merge: fa3194d 2b08a5f
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 19:35:53 2026 +0530
+
+    Merge pull request #1 from NirajShaha/Niraj
+    
+    Niraj added a message
+
+commit 2b08a5fb031cb761212898405f116bd88f53c57d (origin/Niraj, Niraj)
+Author: NirajShaha <nirajshahatakri@gmail.com>
+Date:   Sat Apr 25 13:43:56 2026 +0000
+
+    Niraj added a message
+
+commit fa3194dc15b3f6cc7d0a789d00648e5d57a6ea2f (origin/main, origin/HEAD)
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 18:19:07 2026 +0530
+
+:...skipping...
+commit c3b071336e3b78c05453a8822941d1b4f237636c (HEAD -> main, upstream/main)
+Merge: fa3194d 2b08a5f
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 19:35:53 2026 +0530
+
+    Merge pull request #1 from NirajShaha/Niraj
+    
+    Niraj added a message
+
+commit 2b08a5fb031cb761212898405f116bd88f53c57d (origin/Niraj, Niraj)
+Author: NirajShaha <nirajshahatakri@gmail.com>
+Date:   Sat Apr 25 13:43:56 2026 +0000
+
+    Niraj added a message
+
+commit fa3194dc15b3f6cc7d0a789d00648e5d57a6ea2f (origin/main, origin/HEAD)
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 18:19:07 2026 +0530
+
+    Initial commit
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+commit c3b071336e3b78c05453a8822941d1b4f237636c (HEAD -> main, upstream/main)
+Merge: fa3194d 2b08a5f
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 19:35:53 2026 +0530
+
+    Merge pull request #1 from NirajShaha/Niraj
+    
+    Niraj added a message
+
+commit 2b08a5fb031cb761212898405f116bd88f53c57d (origin/Niraj, Niraj)
+Author: NirajShaha <nirajshahatakri@gmail.com>
+Date:   Sat Apr 25 13:43:56 2026 +0000
+
+    Niraj added a message
+
+commit fa3194dc15b3f6cc7d0a789d00648e5d57a6ea2f (origin/main, origin/HEAD)
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 18:19:07 2026 +0530
+
+    Initial commit
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+commit c3b071336e3b78c05453a8822941d1b4f237636c (HEAD -> main, upstream/main)
+Merge: fa3194d 2b08a5f
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 19:35:53 2026 +0530
+
+    Merge pull request #1 from NirajShaha/Niraj
+    
+    Niraj added a message
+
+commit 2b08a5fb031cb761212898405f116bd88f53c57d (origin/Niraj, Niraj)
+Author: NirajShaha <nirajshahatakri@gmail.com>
+Date:   Sat Apr 25 13:43:56 2026 +0000
+
+    Niraj added a message
+
+commit fa3194dc15b3f6cc7d0a789d00648e5d57a6ea2f (origin/main, origin/HEAD)
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 18:19:07 2026 +0530
+
+    Initial commit
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+commit c3b071336e3b78c05453a8822941d1b4f237636c (HEAD -> main, upstream/main)
+Merge: fa3194d 2b08a5f
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 19:35:53 2026 +0530
+
+    Merge pull request #1 from NirajShaha/Niraj
+    
+    Niraj added a message
+
+commit 2b08a5fb031cb761212898405f116bd88f53c57d (origin/Niraj, Niraj)
+Author: NirajShaha <nirajshahatakri@gmail.com>
+Date:   Sat Apr 25 13:43:56 2026 +0000
+
+    Niraj added a message
+
+commit fa3194dc15b3f6cc7d0a789d00648e5d57a6ea2f (origin/main, origin/HEAD)
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 18:19:07 2026 +0530
+
+    Initial commit
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+commit c3b071336e3b78c05453a8822941d1b4f237636c (HEAD -> main, upstream/main)
+Merge: fa3194d 2b08a5f
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 19:35:53 2026 +0530
+
+    Merge pull request #1 from NirajShaha/Niraj
+    
+    Niraj added a message
+
+commit 2b08a5fb031cb761212898405f116bd88f53c57d (origin/Niraj, Niraj)
+Author: NirajShaha <nirajshahatakri@gmail.com>
+Date:   Sat Apr 25 13:43:56 2026 +0000
+
+    Niraj added a message
+
+commit fa3194dc15b3f6cc7d0a789d00648e5d57a6ea2f (origin/main, origin/HEAD)
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 18:19:07 2026 +0530
+
+    Initial commit
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+...skipping...
+commit c3b071336e3b78c05453a8822941d1b4f237636c (HEAD -> main, upstream/main)
+Merge: fa3194d 2b08a5f
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 19:35:53 2026 +0530
+
+    Merge pull request #1 from NirajShaha/Niraj
+    
+    Niraj added a message
+
+commit 2b08a5fb031cb761212898405f116bd88f53c57d (origin/Niraj, Niraj)
+Author: NirajShaha <nirajshahatakri@gmail.com>
+Date:   Sat Apr 25 13:43:56 2026 +0000
+
+    Niraj added a message
+
+commit fa3194dc15b3f6cc7d0a789d00648e5d57a6ea2f (origin/main, origin/HEAD)
+Author: arohi12344 <134568230+arohi12344@users.noreply.github.com>
+Date:   Sat Apr 25 18:19:07 2026 +0530
+
+    Initial commit
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+PS E:\git-learn\git-learn> 
